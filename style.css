@@ -1,0 +1,102 @@
+:root {
+    --primary-red: #ff4d6d;
+    --glass: rgba(255, 255, 255, 0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background Photo */
+.bg-image {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -3;
+}
+.main-bg { background-image: url('https://th.bing.com/th/id/OIP.ZwFWKjOYaR4D5zSzOte30gHaEK?w=275&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3'); }
+.success-bg { background-image: url('https://th.bing.com/th/id/OIP.ZGaeTC1zsW5YQ_m_O3Un7AHaEK?w=296&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3'); }
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -2;
+}
+
+#heartCanvas {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* PERFECT CENTERING FOR CARD */
+.glass-card {
+    position: relative; /* Fixed auto-centering inside flex body */
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 3rem;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 550px;
+    animation: cardFloat 5s ease-in-out infinite;
+}
+
+.hindi-text { font-family: 'Hind', sans-serif; color: white; font-size: 2.8rem; }
+.question { font-family: 'Great Vibes', cursive; color: white; font-size: 3.5rem; margin: 15px 0; }
+
+.btn-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 120px; /* Space for growing button */
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+#yesBtn { background: #43aa8b; color: white; }
+#noBtn { background: var(--primary-red); color: white; position: relative; }
+
+/* Success Page Photos */
+.photo-container { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+.polaroid {
+    background: white; padding: 10px 10px 20px 10px;
+    transform: rotate(-3deg); box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.polaroid img { width: 150px; height: 150px; object-fit: cover; }
+.polaroid p { font-family: 'Great Vibes', cursive; color: #333; margin-top: 5px; }
+.polaroid:nth-child(2) { transform: rotate(4deg); }
+
+.message-box { color: white; margin-top: 15px; line-height: 1.5; }
+.back-link { color: white; text-decoration: none; display: block; margin-top: 20px; font-size: 0.9rem; opacity: 0.8; }
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
